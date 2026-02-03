@@ -2,7 +2,7 @@ package oop_00000113628_BagusKuncoroAdiYuwono.week01
 
 fun main() {
 
-    val radius= 7.0
+    val radius = 7.0
     val pi = 3.14
 
 

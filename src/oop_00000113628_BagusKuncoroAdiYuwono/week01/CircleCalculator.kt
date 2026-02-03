@@ -2,8 +2,8 @@ package oop_00000113628_BagusKuncoroAdiYuwono.week01
 
 fun main() {
 
-    val radius: Double = 7.0
-    val pi: Double = 3.14
+    val radius= 7.0
+    val pi = 3.14
 
 
     var area = pi * radius * radius

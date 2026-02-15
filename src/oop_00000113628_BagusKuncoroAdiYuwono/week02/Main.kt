@@ -5,37 +5,68 @@ import java.util.Scanner
 fun main(){
     val scanner = Scanner(System.`in`)
 
-    println("--- APLIKASI PMB UMN ---")
+    println("--- Pilih API ---")
+    println("1. API PMB UMN")
+    println("2. API LIBRARY UMN")
 
-    print("Masukan Nama: ")
-    val name = scanner.nextLine()
-
-    print("Masukan NIM  (Wajib 5 karakter): ")
-    val nim = scanner.next()
-
+    val api = scanner.nextInt()
     scanner.nextLine()
 
+    if (api == 1) {
+        println("--- APLIKASI PMB UMN ---")
 
-    if (nim.length !=5) {
-        println("ERROR: Pendaftaran di batalkan. NIM haris 5 karakter!")
+        print("Masukkan Nama: ")
+        val name  = scanner.nextLine()
 
-    } else {
+        print("Masukkan NIM (Wajib 5 Karakter): ")
+        val nim = scanner.next()
 
-        print("Pilih Jalur (1. reguler, 2. Umum: ")
-        val type = scanner.nextInt()
         scanner.nextLine()
 
-        if (type == 1) {
-            print("Masuan Jurusan: ")
-            val major = scanner.nextLine()
-
-            val s1 = Student(name, nim, major)
-            println("Terdaftar di: ${s1.major} dengan GPA awal ${s1.gpa}")
-        } else if (type == 2) {
-            val s2 = Student(name, nim)
-            println("Terdaftar di: ${s2.major} dengan GPA awal ${s2.gpa}")
+        if (nim.length != 5) {
+            println("ERROR: Pendaftaran dibatalkan. NIM harus 5 Karakter!")
         } else {
-            println("Pilihan ngawur, pendaftaran batal")
+
+            print("Pilih Jalur (1. Reguler, 2. Umum): ")
+            val type = scanner.nextInt()
+            scanner.nextLine()
+
+            if (type == 1) {
+                print("Masukkan Jurusan: ")
+                val major = scanner.nextLine()
+
+                val s1 = Student(name, nim, major)
+                println("Terdaftar di: ${s1.major} dengan GPA awal ${s1.gpa}")
+            } else if (type == 2) {
+                val s2 = Student(name, nim)
+                println("Terdaftar di ${s2.major} dengan GPA awal ${s2.gpa}")
+            } else {
+                print("Pilihan ngawur, pendaftaran batal!")
+            }
         }
+
+    } else if (api == 2) {
+        println("--- APLIKASI LIBRARY UMN ---")
+
+        print("Judul: ")
+        val bookTitle  = scanner.nextLine()
+
+        print("Nama Peminjam: ")
+        val borrower = scanner.nextLine()
+
+        print("Lama Peminjaman: ")
+        var loanDuration = scanner.nextInt()
+
+        scanner.nextLine()
+
+        if (loanDuration < 1) {
+            println("ERROR: Lama Peminjaman tidak bisa minus! Otomatis menjadi 1 hari.")
+            loanDuration = 1
+        }
+
+        val loan = Loan(bookTitle, borrower, loanDuration)
+        println("Buku dengan judul $bookTitle yang dipinjam oleh $borrower selama $loanDuration hari terkena denda sebesar Rp ${loan.calculateFine()}")
+    } else {
+        print("Pilihan ngawur, masuk api batal!")
     }
 }

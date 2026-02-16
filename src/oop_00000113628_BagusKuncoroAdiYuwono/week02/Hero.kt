@@ -16,7 +16,6 @@ class Hero(
         }
 
         println("$name terkena $damage damage.")
-        println("Status HP : $hp")
     }
 
 

@@ -12,7 +12,7 @@ package oop_00000113628_BagusKuncoroAdiYuwono.week03
 }*/
 
 fun main(){
-    val weapon = Weapon("Weapon1", 9999)
+    val weapon = Weapon("Weapon1", 100)
 
     println(weapon.damage)
     println(weapon.tier)

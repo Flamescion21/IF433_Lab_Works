@@ -1,15 +1,6 @@
 package oop_00000113628_BagusKuncoroAdiYuwono.week03
 
-private var performanceRating: Int = 3
 
-fun increasePerformance(){
-    performanceRating++
-    println("Kinerja $name meningkat! Rating: $performanceRating")
-}
-
-fun printStatus(){
-    println("Kinerja $name meningkat, Rating: $performanceRating")
-}
 
     class Employee(val name: String) {
         var salary: Int = 0
@@ -21,4 +12,15 @@ fun printStatus(){
                     field = value
                 }
             }
+
+        private var performanceRating: Int = 3
+
+        fun increasePerformance(){
+            performanceRating++
+            println("Kinerja $name meningkat! Rating: $performanceRating")
+        }
+
+        fun printStatus(){
+            println("Kinerja $name meningkat, Rating: $performanceRating")
+        }
     }

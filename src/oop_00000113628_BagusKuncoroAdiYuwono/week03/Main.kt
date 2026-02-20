@@ -1,4 +1,4 @@
-package oop_00000113628_BagusKuncoroAdiYuwono.week03
+/*package oop_00000113628_BagusKuncoroAdiYuwono.week03
 
 fun main(){
     val e = Employee("Budi")
@@ -9,4 +9,4 @@ fun main(){
     e.increasePerformance()
 
     println("Pajak yang harus dibayar: ${e.tax}")
-}
+}*/

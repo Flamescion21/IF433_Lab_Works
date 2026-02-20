@@ -1,4 +1,4 @@
-package oop_00000113628_BagusKuncoroAdiYuwono.week03
+/*package oop_00000113628_BagusKuncoroAdiYuwono.week03
 
 
 
@@ -25,4 +25,4 @@ package oop_00000113628_BagusKuncoroAdiYuwono.week03
         }
         val tax: Double
             get() = salary * 0.1
-    }
+    }*/

@@ -23,4 +23,6 @@ package oop_00000113628_BagusKuncoroAdiYuwono.week03
         fun printStatus(){
             println("Kinerja $name meningkat, Rating: $performanceRating")
         }
+        val tax: Double
+            get() = salary * 0.1
     }

@@ -14,6 +14,10 @@ class Weapon(name: String, damage: Int){
             }
         }
 
+    init{
+        this.damage = damage
+    }
+
     val tier: String
         get(){
             if(damage > 800){

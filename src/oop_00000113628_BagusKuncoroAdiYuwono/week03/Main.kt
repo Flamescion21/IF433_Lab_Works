@@ -1,6 +1,6 @@
-/*package oop_00000113628_BagusKuncoroAdiYuwono.week03
+package oop_00000113628_BagusKuncoroAdiYuwono.week03
 
-fun main(){
+/*fun main(){
     val e = Employee("Budi")
     e.salary = -1000
     e.salary = 5000000
@@ -10,3 +10,10 @@ fun main(){
 
     println("Pajak yang harus dibayar: ${e.tax}")
 }*/
+
+fun main(){
+    val weapon = Weapon("Weapon1", 9999)
+
+    println(weapon.damage)
+    println(weapon.tier)
+}

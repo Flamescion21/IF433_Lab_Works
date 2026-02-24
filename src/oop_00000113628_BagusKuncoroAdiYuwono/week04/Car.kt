@@ -1,9 +1,9 @@
 package oop_00000113628_BagusKuncoroAdiYuwono.week04
 
-open class Car(brand: String, val numberofDoors: Int): Vehicle(brand) {
+open class Car(brand: String, val numberOfDoors: Int): Vehicle(brand) {
 
     fun openTrunk(){
-        println("Bagasi mobil $brand dengan $numberofDoors pintu dibuka")
+        println("Bagasi mobil $brand dengan $numberOfDoors pintu dibuka")
     }
     override fun honk(){
         println("TIN TIN! Mobil $brand lewat!")

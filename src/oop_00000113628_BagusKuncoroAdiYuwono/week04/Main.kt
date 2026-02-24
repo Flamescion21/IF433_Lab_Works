@@ -1,0 +1,14 @@
+package oop_00000113628_BagusKuncoroAdiYuwono.week04
+
+fun main(){
+    println("--- Testing Vehicle---")
+    val generalVehicle = Vehicle(brand = "Sepeda Onthel")
+    generalVehicle.honk()
+    generalVehicle.accelerate()
+
+    println("\n--- Testing Car ---")
+    val myCar = Car(brand = "Toyoya", 4)
+    myCar.openTrunk()
+    myCar.honk()
+    myCar.accelerate()
+}

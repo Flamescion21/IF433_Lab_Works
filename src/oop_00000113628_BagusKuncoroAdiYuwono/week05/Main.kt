@@ -5,7 +5,7 @@ fun main(){
     val adminObject = Admin("YogiAdmin")
 
     val daftarPegawai: List<Pegawai> = listOf(dosenObject, adminObject)
-
+    val math = MathHelper()
     for(pegawai in daftarPegawai){
         pegawai.bekerja()
 
@@ -20,4 +20,9 @@ fun main(){
             }
         }
     }
+
+    println(math.hitungLuas(3))
+    println(math.hitungLuas(3, 4))
+    println(math.hitungLuas(2.4))
+
 }

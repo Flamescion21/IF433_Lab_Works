@@ -5,6 +5,6 @@ class creditCard(accountName: String, val limit: Double, var usedAmount: Double 
         if(usedAmount + amount < limit){
             usedAmount += amount
             println("Sukses")
-        }
+        } else println("ditolak")
     }
 }

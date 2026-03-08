@@ -5,15 +5,31 @@ fun main(){
     val adminObject = Admin("Joko")
     val eWalletObject = EWallet("Bagus", 50000.0)
     val creditCardObject = creditCard("BK", 100000.0)
-    val PaymentMethods: List<PaymentMethod> = listOf(eWalletObject, creditCardObject)
+
     val daftarPegawai: List<Pegawai> = listOf(dosenObject, adminObject)
     val math = MathHelper()
 
+    val Methods: List<PaymentMethod> = listOf(eWalletObject, creditCardObject)
 
 
 
-    for(PaymentMethod in PaymentMethods) {
-        PaymentMethod.processPayment(75000.0)
+    for (Method in Methods) {
+
+        Method.processPayment(75000.0)
+
+        when (Method) {
+
+            is EWallet -> {
+                Method.topUp(50000.0)
+                println("Saldo di-top up 50000")
+
+                Method.processPayment(75000.0)
+            }
+
+            is creditCard -> {
+                Method.processPayment(95000.0)
+            }
+        }
     }
 
 

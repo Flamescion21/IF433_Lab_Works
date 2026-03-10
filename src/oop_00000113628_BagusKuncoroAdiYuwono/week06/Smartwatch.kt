@@ -5,11 +5,12 @@ class Smartwatch : Watch(), BluetoothConnectable, Rechargeable {
         println("Layar OLED menhyala: 14:00 WIB")
     }
 
-    override fun connetToBluetooth() {
+    override fun connectToBluetooth() {
         println("Mencari Perangkat HP di sekitar untuk pairing")
     }
 
     override fun chargeBattery() {
         println("Mengisi daya mengguanakn Charger magnetik 15W")
     }
+
 }

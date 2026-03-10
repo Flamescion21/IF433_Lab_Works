@@ -1,0 +1,15 @@
+package oop_00000113628_BagusKuncoroAdiYuwono.week06
+
+class Smartwatch : Watch(), BluetoothConnectable, Rechargeable {
+    override fun showTime() {
+        println("Layar OLED menhyala: 14:00 WIB")
+    }
+
+    override fun connetToBluetooth() {
+        println("Mencari Perangkat HP di sekitar untuk pairing")
+    }
+
+    override fun chargeBattery() {
+        println("Mengisi daya mengguanakn Charger magnetik 15W")
+    }
+}

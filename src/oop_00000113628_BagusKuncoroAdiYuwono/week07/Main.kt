@@ -38,4 +38,8 @@ fun main(){
         is ApiResponse.Loading -> "Tampilkan Spinner"
     }
     println(uiMessage)
+
+
+    GameManager.startGame()
+    GameManager.startGame()
 }

@@ -1,0 +1,7 @@
+package oop_00000113628_BagusKuncoroAdiYuwono.week08
+
+sealed class Product(){}
+
+data class Electronic(val id: String, val name: String, val warrantyMonths: Int): Product(){}
+
+data class Clothing(val id: String, val name: String, val size: String): Product(){}

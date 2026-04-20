@@ -31,11 +31,5 @@ class ApiParser(){
         println(transactionId)
         return true
     }
-    for(raw in rawApiData){
-        try{
 
-        }catch{
-
-        }
-    }
 }

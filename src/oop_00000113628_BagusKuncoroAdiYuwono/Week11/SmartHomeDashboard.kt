@@ -13,6 +13,14 @@ fun main(){
         homeDevices.add(it)
     }
 
+    val device2 = SmartDevice("Ezviz outdoor", "Camera").apply {
+        isOnline = true
+        powerLoad = 5
+    }.also {
+        println("(LOG) Kamera terhubung")
+        homeDevices.add(it)
+    }
+
     val AC = "Kotlin".run{
         SmartDevice("Daikin inverter (kabel 3x2.5)", "HVAC", false, 800)
     }.also{
@@ -23,10 +31,17 @@ fun main(){
     homeDevices.add(feeder)
 
     val searchResult = homeDevices.find {
-        it.category.equals("Camera")
+        it.category.equals("Camera", ignoreCase = true)
     }
 
     searchResult?.let{
-        it.diagnose()
+        println(it.diagnose())
+    }
+
+    with(homeDevices){
+        println(this.size)
+        this.forEach{
+                device -> println("Nama: ${device.name}}, category: ${device.category}, status: ${device.isOnline}, powerload: ${device.powerLoad}")
+        }
     }
 }

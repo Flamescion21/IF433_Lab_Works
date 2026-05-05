@@ -53,4 +53,5 @@ fun main(){
     homeDevices.forEach {
         println(it.diagnose())
     }
+    //tested
 }

@@ -3,8 +3,9 @@ package oop_00000113628_BagusKuncoroAdiYuwono.Week12
 fun main(){
     println("=== TEST RUNCATCHING ===")
     val result: Result<Int> = runCatching {
-        "42X".toInt()
-    }
+        "100".toInt()
+    }.onSuccess {v -> println(v)
+    }.onFailure {e -> println(e.message)}
     val safeValue = result.getOrElse { -1 }
     println("safe value: $safeValue")
 

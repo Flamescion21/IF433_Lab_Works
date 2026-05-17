@@ -26,5 +26,7 @@ fun main() {
         println("Food empty!")
     } catch (e: Exception) {
         println("General error!")
+    } finally {
+        println("Siklus pengecekan dispeser pagi selesai!")
     }
 }

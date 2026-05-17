@@ -11,14 +11,15 @@ fun divide(a: Int, b: Int): Int{
     }
 }
 
-fun main(){
+fun main() {
     println("=== TEST TRY AS EXPRESSION ===")
     val inputString = "123A"
 
-    val result: Int = try{
+    val result: Int = try {
         Integer.parseInt(inputString)
-    }catch(e: NumberFormatException){
+    } catch (e: NumberFormatException) {
         -1
     }
 
     println("hasil parsing $result")
+}

@@ -13,5 +13,18 @@ fun dispenseKibble(requestedGram: Int, availableGram: Int, isJammed: Boolean): I
     return availableGram - requestedGram
 }
 
-fun main(){
+fun main() {
     var currentKibbleStock = 50
+    try {
+        dispenseKibble(
+            80,
+            currentKibbleStock, false
+        )
+    } catch (e: DispenserJamException) {
+        println("Dispenser jam!")
+    } catch (e: FoodEmptyException) {
+        println("Food empty!")
+    } catch (e: Exception) {
+        println("General error!")
+    }
+}

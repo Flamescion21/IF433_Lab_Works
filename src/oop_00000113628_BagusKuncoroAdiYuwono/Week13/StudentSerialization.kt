@@ -16,3 +16,19 @@ fun fromCSV(line: String) : Student{
     val parts = line.split(",")
     return Student(parts[0], parts[1].toInt(), parts[2].toDouble())
 }
+
+fun saveStudent(student: List<Student>, path: String) {
+    File(path).writeText(
+        student.joinToString("\n") {
+            it.toCSV()
+        })
+}
+
+fun loadStudents(path: String) : List<Student>{
+    return try {
+        File(path).readLines().map { fromCSV(it) }
+    } catch (e: FileNotFoundException) {
+        println("Error: File tidak ditemukan!")
+        emptyList()
+    }
+}

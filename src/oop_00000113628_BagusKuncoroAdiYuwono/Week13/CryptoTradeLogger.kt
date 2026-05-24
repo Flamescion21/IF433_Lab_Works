@@ -11,7 +11,7 @@ data class TradeRecord(
 fun TradeRecord.toCSV(): String =
     "$id,$symbol,$type,$margin,$pnl"
 
-fun fromCSVTrade(line: String) : TradeRecord?{
+fun fromCSVTrade(line: String) : TradeRecord? {
     return try {
         val parts = line.split(",")
         return TradeRecord(

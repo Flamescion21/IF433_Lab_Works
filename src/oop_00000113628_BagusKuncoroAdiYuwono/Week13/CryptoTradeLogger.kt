@@ -56,4 +56,7 @@ fun main() {
     saveTrades(mockTrades, fileName)
 
     File(fileName).appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+
+    val loadedData = loadTrades(fileName)
+    val totalPnl = loadedData.sumOf { it.pnl }
 }

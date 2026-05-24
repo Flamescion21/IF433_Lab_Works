@@ -1,5 +1,5 @@
-package oop_00000113628_BagusKuncoroAdiYuwono.Week13
 import java.io.File
+import java.io.FileNotFoundException
 
 data class TradeRecord(
     val id: Int,
@@ -9,28 +9,39 @@ data class TradeRecord(
     val pnl: Double
 )
 
-fun TradeRecord.toCSV(): String =
-    "$id,$symbol,$type,$margin,$pnl"
+fun TradeRecord.toCsv(): String {
+    return "$id,$symbol,$type,$margin,$pnl"
+}
 
-fun fromCSVTrade(line: String) : TradeRecord? {
+fun fromCsvTrade(line: String): TradeRecord? {
     return try {
         val parts = line.split(",")
-        return TradeRecord(
-            parts[0].toInt(),
-            parts[1],
-            parts[2],
-            parts[3].toDouble(),
-            parts[4].toDouble()
-        )
-    } catch (e: Exception) {
-        println("Log: Data korup diabaikan: $line")
+        val id = parts[0].toInt()
+        val symbol = parts[1]
+        val type = parts[2]
+        val margin = parts[3].toDouble()
+        val pnl = parts[4].toDouble()
+
+        TradeRecord(id, symbol, type, margin, pnl)
+    } catch (e: NumberFormatException) {
+        println("(Log) Data korup diabaikan: $line")
         null
     }
 }
+
 fun saveTrades(trades: List<TradeRecord>, path: String) {
-    File(path).printWriter().use { out ->
-        trades.forEach {
-            out.println(it.toCSV())
+    File(path).printWriter().use { writer ->
+        trades.forEach { trade ->
+            writer.println(trade.toCsv())
         }
+    }
+}
+
+fun loadTrades(path: String): List<TradeRecord> {
+    return try {
+        File(path).readLines().mapNotNull { fromCsvTrade(it) }
+    } catch (e: FileNotFoundException) {
+        println("(Log) File: $path Tidak Ditemukan")
+        emptyList()
     }
 }

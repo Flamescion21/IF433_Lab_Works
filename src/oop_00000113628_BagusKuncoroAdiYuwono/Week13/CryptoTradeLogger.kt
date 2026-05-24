@@ -59,4 +59,11 @@ fun main() {
 
     val loadedData = loadTrades(fileName)
     val totalPnl = loadedData.sumOf { it.pnl }
+
+    println("\n==== ENTRI TRANSAKSI YANG VALID ====")
+    loadedData.forEach { trade ->
+        println("ID: ${trade.id} | ${trade.symbol} (${trade.type}) | Margin: $${trade.margin} | PnL: $${trade.pnl}")
+    }
+
+    println("==== TOTAL PnL BERSIH: $totalPnl ====")
 }

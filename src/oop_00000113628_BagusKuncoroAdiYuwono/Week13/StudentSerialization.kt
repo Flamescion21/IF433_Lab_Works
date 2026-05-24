@@ -9,7 +9,7 @@ data class Student(
 )
 
 // Serialization (Object to CSV)
-fun Student.toCSV(): String = "$name, $age, $gpa"
+fun Student.toCSV(): String = "$name,$age,$gpa"
 
 // Deseletialization (CSV to Object)
 fun fromCSV(line: String) : Student{
@@ -31,4 +31,16 @@ fun loadStudents(path: String) : List<Student>{
         println("Error: File tidak ditemukan!")
         emptyList()
     }
+}
+
+fun main() {
+    val students = listOf(
+        Student("Alice", 20, 3.8),
+        Student("Bob", 22, 3.5)
+    )
+    saveStudent(students, "students.csv")
+
+    val loaded = loadStudents("students.csv")
+    println("Loaded student data")
+    loaded.forEach { println(it) }
 }

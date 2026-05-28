@@ -9,14 +9,18 @@ interface NotificationService {
     fun sendNotification(message: String)
 }
 
-class CsvOrderRepository(private val fileName: String = "orders.csv") : OrderRepository {
-    private val file = File(fileName)
+interface PricingStrategy {
+    val customerType: String
+    fun calculate(price: Double): Double
+}
+class VipPricing : PricingStrategy {
+    override val customerType: String = "VIP"
+    override fun calculate(price: Double): Double = price * 0.90
+}
 
-    override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
-        file.bufferedWriter().use { writer ->
-            writer.append("$itemName,$finalPrice,$customerType\n")
-        }
-    }
+class RegularPricing : PricingStrategy {
+    override val customerType: String = "REGULAR"
+    override fun calculate(price: Double): Double = price
 }
 
 class EmailNotifier : NotificationService {
@@ -32,18 +36,13 @@ class SafeOrderProcessor(
 
 
 
-    fun processOrder(itemName: String, basePrice: Double, customerType: String) {
+    fun processOrder(itemName: String, basePrice: Double, pricingStrategy: PricingStrategy) {
+        val finalPrice = pricingStrategy.calculate(basePrice)
 
-        // VIOLATION: Kaku jika ada tipe customer/diskon baru di masa depan (OCP)
-        val finalPrice = when (customerType) {
-            "REGULAR" -> basePrice
-            "VIP" -> basePrice * 0.90 // Diskon 10%
-            else -> basePrice
-        }
+        println("Memproses pesanan $itemName seharga $finalPrice (${pricingStrategy.customerType})")
 
-        println("Memproses pesanan $itemName seharga $finalPrice")
+        repo.saveOrder(itemName, finalPrice, pricingStrategy.customerType)
 
-        repo.saveOrder(itemName, finalPrice, customerType)
         notifier.sendNotification("Pesanan $itemName Anda telah dikonfirmasi!")
     }
 }
